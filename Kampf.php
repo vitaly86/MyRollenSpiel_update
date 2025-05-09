@@ -79,7 +79,7 @@ class Kampf
                     $this->punkte_db2 = 0;
                 }
                 // sleep(1);
-                echo "<h3>Player 2 remains $this->punkte_db2 Points </h3>";
+                echo "<h3> $this->user_db2 remains $this->punkte_db2 Points </h3>";
             } else {
                 $this->punkte_db1 -= $this->angriff_db2;
                 if ($this->runden > 2) {
@@ -89,16 +89,16 @@ class Kampf
                     $this->punkte_db1 = 0;
                 }
                 // sleep(1);
-                echo "<h3>Player 1 remains $this->punkte_db1 Points</h3>";
+                echo "<h3>$this->user_db1 remains $this->punkte_db1 Points</h3>";
             }
             $this->runden++;
             echo "<br>";
         }
         if ($this->punkte_db1 > 0) {
-            echo "<h2>Player 1 won! </h2>";
+            echo "<h2>$this->user_db1 won! </h2>";
             $this->dt->saveFight(1);
         } else {
-            echo "<h2>Player 2 won! </h2>";
+            echo "<h2>$this->user_db2 won! </h2>";
             $this->dt->saveFight(2);
         }
         echo "<h2>There are " . ceil($this->runden / 2) . " rounds</h2>";
